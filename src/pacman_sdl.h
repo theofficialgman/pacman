@@ -12,7 +12,7 @@
 #include "screen.h"
 #include "sounds.h"
 #include "ghost_figur.h"
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "menu_main.h"
 #include "highscore.h"
 

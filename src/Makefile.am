@@ -12,7 +12,7 @@ AM_CFLAGS =\
 	 -g
 
 
-pacman_SOURCES =  \
+pacman_sdl_SOURCES =  \
 	cmdline_options.cpp \
 	cmdline_options.h \
 	constants.cpp \
@@ -25,10 +25,10 @@ pacman_SOURCES =  \
 	gamecontroller.h \
 	ghost_figur.cpp \
 	ghost_figur.h \
-	pacman.cpp \
-	pacman.h \
-	pacman_figur.cpp \
-	pacman_figur.h \
+	pacman_sdl.cpp \
+	pacman_sdl.h \
+	pacman_sdl_figur.cpp \
+	pacman_sdl_figur.h \
 	pille.cpp \
 	pille.h \
 	labyrinth.h \
@@ -58,7 +58,7 @@ pacman_SOURCES =  \
 	highscore.h \
 	highscore.cpp
 
-pacman_CXXFLAGS = -ansi \
+pacman_sdl_CXXFLAGS = -ansi \
 	-fno-default-inline \
 	-ffor-scope \
 	-Wall \
@@ -76,16 +76,16 @@ pacman_CXXFLAGS = -ansi \
 	-Wno-reorder \
 	-D_GNU_SOURCE
 
-pacman_LDFLAGS = -I/usr/include/SDL2 -D_REENTRANT #$(SDL2_CFLAGS)
+pacman_sdl_LDFLAGS = -I/usr/include/SDL2 -D_REENTRANT #$(SDL2_CFLAGS)
 
-pacman_LDADD =  \
+pacman_sdl_LDADD =  \
 	$(SDL2_LIBS) \
 	-lSDL2_mixer \
 	-L/usr/lib64 -lSDL2
 
 
 
-pacmanEXTRA_DIST = libsdl \
+pacman_sdlEXTRA_DIST = libsdl \
 	sdl-image \
 	sdl-ttf \
 	sdl-mixer
@@ -93,4 +93,4 @@ pacmanEXTRA_DIST = libsdl \
 
 
 bin_PROGRAMS =  \
-	pacman
+	pacman_sdl

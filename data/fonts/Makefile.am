@@ -3,7 +3,7 @@
 
    
 
-datadir_fontsdir =  $(datadir)/pacman/fonts
+datadir_fontsdir =  $(datadir)/pacman_sdl/fonts
 dist_datadir_fonts_DATA = Cheapmot.TTF \
 	Makefile \
 	Makefile.am \

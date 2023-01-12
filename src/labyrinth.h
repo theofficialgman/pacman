@@ -10,7 +10,7 @@
 #include "sounds.h"
 #include "platform.h"
 #include "ghost_figur.h"
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "labyrinth_observer.h"
 using namespace std;
 
@@ -22,7 +22,7 @@ class Labyrinth {
 		static void cleanUpInstance();
 
 		// At the left and right of the tunnel, there are two black rectangles,
-		// below which pacman and the ghosts will disappear if they leave the
+		// below which pacman_sdl and the ghosts will disappear if they leave the
 		// level to the left or right.
 		void draw_blocks();
 

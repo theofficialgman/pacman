@@ -14,7 +14,7 @@ dist_doc_DATA = \
 
 ## Desktop DIR
 desktopdir = $(datadir)/applications
-desktop_in_files = pacman.desktop.in
+desktop_in_files = pacman_sdl.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 INTLTOOL_FILES = intltool-extract.in \

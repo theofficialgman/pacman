@@ -25,9 +25,9 @@ class Constants {
 		static const int INITIAL_LIVES                = 3;     // number of times the player must die to get the "game over"
 		static const int PACMAN_INITIAL_X             = 310;   // starting position of Pacman
 		static const int PACMAN_INITIAL_Y             = 339;
-		static const int PACMAN_V_FAST                = 120;   // pacman's speed when not eating
-		static const int PACMAN_V_SLOW                = 100;    // pacman's speed while eating
-		static const uint16_t PACMAN_WECHSEL_RATE     = 7;     // load a new image for pacman after a movement of this number of pixels
+		static const int PACMAN_V_FAST                = 120;   // pacman_sdl's speed when not eating
+		static const int PACMAN_V_SLOW                = 100;    // pacman_sdl's speed while eating
+		static const uint16_t PACMAN_WECHSEL_RATE     = 7;     // load a new image for pacman_sdl after a movement of this number of pixels
 		static const int BLINKY_INITIAL_X             = 310;   // starting positions of the ghosts
 		static const int BLINKY_INITIAL_Y             = 174;
 		static const int PINKY_INITIAL_X              = 310;

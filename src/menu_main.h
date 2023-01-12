@@ -1,6 +1,6 @@
 #ifndef MENU_MAIN_H
 #define MENU_MAIN_H
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "ghost_figur.h"
 #include "menu_options.h"
 #include "menu_about.h"

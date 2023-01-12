@@ -413,7 +413,7 @@ void Ghost::set_hunter(Hunter hunter) {
 
 bool Ghost::touched() {
 	if(get_hunter() == PACMAN) {
-		// ghost has been eaten by pacman
+		// ghost has been eaten by pacman_sdl
 		hunter = NONE;
 		set_speed(panicMode ? Constants::GHOSTS_V_FAST : Constants::GHOSTS_V_NORMAL);
 		set_leader();
@@ -425,7 +425,7 @@ bool Ghost::touched() {
 		Sounds::getInstance()->playSingleSound(Sounds::EAT_GHOST);
 	}
 	if(get_hunter() == NONE)
-		return false;  // no problem for pacman
+		return false;  // no problem for pacman_sdl
 	return true;
 }
 

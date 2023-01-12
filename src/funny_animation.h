@@ -1,7 +1,7 @@
 #ifndef FUNNY_ANIMATION_H
 #define FUNNY_ANIMATION_H
 #include "screen.h"
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "ghost_figur.h"
 #include "labyrinth.h"
 
@@ -27,7 +27,7 @@ class FunnyAnimation {
 		int idxAnimation, animationPart, animationTime, lastAnimTime, animWaitUntil;
 		
 		Screen *screen;
-		Pacman *pacman;
+		Pacman *pacman_sdl;
 		Ghost **ghosts;
 		Labyrinth *labyrinth;
 		SDL_Surface *animScore200, *animScore400, *animScore800, *animScore1600;

@@ -11,22 +11,22 @@ class Pacman : public Figur {
 		static Pacman *getInstance();
 		static void cleanUpInstance();
 
-		// draw pacman
+		// draw pacman_sdl
 		virtual void draw();
 
-		//move pacman
+		//move pacman_sdl
 		void move(int ms);
 
-		// pacman all direction animation
+		// pacman_sdl all direction animation
 		void left_pic(int cnt_pic);
 		void up_pic(int cnt_pic);
 		void right_pic(int cnt_pic);
 		void down_pic(int cnt_pic);
 
-		// for pacman die animation
+		// for pacman_sdl die animation
 		void die_pic(int cnt_pic);
 
-		// animate pacman
+		// animate pacman_sdl
 		void animate();
 
 		// moves a ghost on the defined rails
@@ -38,13 +38,13 @@ class Pacman : public Figur {
 		void move_right(int ms, int stop_at = 999);
 		void move_down(int ms, int stop_at = 999);
 
-		// direction that pacman will next go to
+		// direction that pacman_sdl will next go to
 		Direction direction_pre;
 
-		// reset pacman
+		// reset pacman_sdl
 		void reset();
 
-		// collision handling pacman <-> ghosts
+		// collision handling pacman_sdl <-> ghosts
 		bool ghostTouched() const;
 
 		// return the surface
@@ -52,7 +52,7 @@ class Pacman : public Figur {
 
 		void check_eat_pills();
 
-		// pacman dies
+		// pacman_sdl dies
 		void set_dying(int dying);
 		int is_dying() const;
 		int die_animation(bool skipSound = false);
@@ -60,10 +60,10 @@ class Pacman : public Figur {
 		// deprecated - has been inlined to draw(), so no longer needs to be called
 		virtual void addUpdateRect();
 
-		// draw the number of lives (as small pacman images) to the screen
+		// draw the number of lives (as small pacman_sdl images) to the screen
 		void drawLives();
 
-		// Add lives. num should be -1 if pacman died, 1 if a bonus life is granted
+		// Add lives. num should be -1 if pacman_sdl died, 1 if a bonus life is granted
 		void addLives(int num);
 
 		// returns the remaining number of lives
@@ -79,8 +79,8 @@ class Pacman : public Figur {
 		static Pacman *instance;
 		int animation;
 		int cnt_animation;
-		int cnt_slow; // number of loops that pacman will stay slow
-		int dying; // saves whether pacman is dying at the moment
+		int cnt_slow; // number of loops that pacman_sdl will stay slow
+		int dying; // saves whether pacman_sdl is dying at the moment
 		int die_counter; // counter for die animation
 		int remainingLives;  // remaining lives of the player
 		SDL_Surface *pacman_sf;

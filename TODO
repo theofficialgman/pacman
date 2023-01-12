@@ -12,14 +12,14 @@ in general:
 
 for future releases:
 - different level difficullty
-  - level 1: last 20 pills ghosts as fast as pacman
-  - level 2: like level one + ghosts and pacman faster
-  - level 3: like level two but last 30 pills ghosts as fast as pacman
+  - level 1: last 20 pills ghosts as fast as pacman_sdl
+  - level 2: like level one + ghosts and pacman_sdl faster
+  - level 3: like level two but last 30 pills ghosts as fast as pacman_sdl
   - level 4: like level three but ghosts change intelligence
     - all ghosts more and other intelligence
-	  - blinky: follow pacman with higher intelligence
-	  - pinky: intercepting pacman
-	  - inky: intercepting pacman
+	  - blinky: follow pacman_sdl with higher intelligence
+	  - pinky: intercepting pacman_sdl
+	  - inky: intercepting pacman_sdl
 	  - clyde remains stupid
   - level 5 till open end: like level four
 - game statistics:

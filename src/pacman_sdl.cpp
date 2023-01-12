@@ -1,4 +1,4 @@
-#include "pacman.h"
+#include "pacman_sdl.h"
 #include "config.h"
 
 int main(int argc, char *argv[]) {
@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 	CommandLineOptions::set(argc, argv);
 	if (CommandLineOptions::exists("h", "help")) {
 		std::cout << "This game is a Pacman clone (version " << VERSION << ")."              << std::endl
-		          << "Usage: pacman [options]"                                               << std::endl
+		          << "Usage: pacman_sdl [options]"                                               << std::endl
 		          << std::endl
 		          << "Options:"                                                              << std::endl
 		          << "  -h, --help         Display this help message and quit."              << std::endl
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 		return EXIT_SUCCESS;
 	}
 	else if (CommandLineOptions::exists("v", "version")) {
-		std::cout << "pacman version " << VERSION << std::endl;
+		std::cout << "pacman_sdl version " << VERSION << std::endl;
 		return EXIT_SUCCESS;
 	}
 

@@ -3,9 +3,9 @@ Pacman
 
 ![in-game screenshot](https://libregamewiki.org/images/1/18/Pacman.png "in-game screenshot")
 
-This is a clone of the original pacman by Namco, as I remember, that I played for the first time on an Atari 130 XL in the early 90s.
+This is a clone of the original pacman_sdl by Namco, as I remember, that I played for the first time on an Atari 130 XL in the early 90s.
 
-Also, Paul Neave's pacman clone has inspired me greatly.
+Also, Paul Neave's pacman_sdl clone has inspired me greatly.
 
 One of the main goals of this implementation is an SDL application with a very low CPU usage.
 
@@ -19,24 +19,24 @@ You have to compile the Linux version on your own. For this, you'll need
 * and sdl2-mixer.
 
 (make sure to take the devel packages) 
-Then, download and extract the zip file or clone the pacman repository.
-Inside the pacman directory, run
+Then, download and extract the zip file or clone the pacman_sdl repository.
+Inside the pacman_sdl directory, run
 ```
 ./configure
 make
 make install
 ```
-For more detailed instructions, you may also have a look at the [INSTALL](https://github.com/ebuc99/pacman/blob/master/INSTALL) file.
+For more detailed instructions, you may also have a look at the [INSTALL](https://github.com/ebuc99/pacman_sdl/blob/master/INSTALL) file.
 
-After a successful installation, you should be able to start the game via command line: `pacman`
+After a successful installation, you should be able to start the game via command line: `pacman_sdl`
 
 ## Install Fedora ##
 
 ```
 sudo dnf install make gcc-c++ SDL2 SDL2-devel SDL2_image SDL2_image-devel SDL2_mixer SDL2_mixer-devel SDL2_ttf SDL2_ttf-devel
 ```
-Then, download and extract the zip file or clone the pacman repository.
-Inside the pacman directory, run
+Then, download and extract the zip file or clone the pacman_sdl repository.
+Inside the pacman_sdl directory, run
 ```
 ./autogen.sh
 ./configure

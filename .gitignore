@@ -8,7 +8,7 @@ autom4te.cache
 
 *.o
 Makefile
-src/pacman
+src/pacman_sdl
 src/.deps
 config.log
 config.status

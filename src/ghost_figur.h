@@ -5,7 +5,7 @@
 #include "game.h"
 #include "labyrinth.h"
 #include "figur.h"
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "rail.h"
 #include <time.h>
 #include "labyrinth_observer.h"
@@ -32,12 +32,12 @@ class Ghost : public Figur, public LabyrinthObserver {
 		// has the leader moved?
 		static int was_moving_leader;
 
-		// Returns the direction that has to be taken to reach the given target point (e.g. pacman's current position).
+		// Returns the direction that has to be taken to reach the given target point (e.g. pacman_sdl's current position).
 		// The result is coded like this: 0 = left, 1 = up, 2 = right, 3 = down
 		int direction_to_point(int target_x, int target_y);
 		int alternative_direction_to_point(int target_x, int target_y);  // Returns an alternative direction. Use it, if the exact one is not available.
 
-		// This is the A.I. of the ghosts: with a defined probability, they move to the direction where pacman is.
+		// This is the A.I. of the ghosts: with a defined probability, they move to the direction where pacman_sdl is.
 		int choose_direction(Direction * sammel_richtung, int richtung_pacman, int sammel_counter, int intelligence);
 
 		// moves a ghost on the defined rails
@@ -56,8 +56,8 @@ class Ghost : public Figur, public LabyrinthObserver {
 		Figur::Hunter get_hunter() const;
 		void set_hunter(Hunter hunter);
 
-		// Callback method when pacman has touched this ghost. Returns 1 if this was dangerous for
-		// pacman, 0 otherwise.
+		// Callback method when pacman_sdl has touched this ghost. Returns 1 if this was dangerous for
+		// pacman_sdl, 0 otherwise.
 		bool touched();
 
 		// announce the end of the hunting mode by blinking

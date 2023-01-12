@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 
-datadir_gfxdir =  $(datadir)/pacman/gfx
+datadir_gfxdir =  $(datadir)/pacman_sdl/gfx
 dist_datadir_gfx_DATA = augen_0.png \
 	augen_1.png \
 	augen_2.png \
@@ -14,25 +14,25 @@ dist_datadir_gfx_DATA = augen_0.png \
 	hintergrund_schienen.png \
 	inky_1.png \
 	inky_2.png \
-	pacman.png \
-	pacman_die_1.png \
-	pacman_die_2.png \
-	pacman_die_3.png \
-	pacman_die_4.png \
-	pacman_die_5.png \
-	pacman_die_6.png \
-	pacman_die_7.png \
-	pacman_die_8.png \
-	pacman_die_9.png \
-	pacman_die_9_alt.png \
-	pacman_links_1.png \
-	pacman_links_2.png \
-	pacman_oben_1.png \
-	pacman_oben_2.png \
-	pacman_rechts_1.png \
-	pacman_rechts_2.png \
-	pacman_unten_1.png \
-	pacman_unten_2.png \
+	pacman_sdl.png \
+	pacman_sdl_die_1.png \
+	pacman_sdl_die_2.png \
+	pacman_sdl_die_3.png \
+	pacman_sdl_die_4.png \
+	pacman_sdl_die_5.png \
+	pacman_sdl_die_6.png \
+	pacman_sdl_die_7.png \
+	pacman_sdl_die_8.png \
+	pacman_sdl_die_9.png \
+	pacman_sdl_die_9_alt.png \
+	pacman_sdl_links_1.png \
+	pacman_sdl_links_2.png \
+	pacman_sdl_oben_1.png \
+	pacman_sdl_oben_2.png \
+	pacman_sdl_rechts_1.png \
+	pacman_sdl_rechts_2.png \
+	pacman_sdl_unten_1.png \
+	pacman_sdl_unten_2.png \
 	pille.png \
 	pinky_1.png \
 	pinky_2.png \
@@ -51,6 +51,6 @@ dist_datadir_gfx_DATA = augen_0.png \
 	banana.png \
 	pear.png \
 	key.png \
-	pacman_die_10.png \
-	title_pacman.png \
-	pacman_desktop.png
+	pacman_sdl_die_10.png \
+	title_pacman_sdl.png \
+	pacman_sdl_desktop.png

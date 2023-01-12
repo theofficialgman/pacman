@@ -4,7 +4,7 @@ FunnyAnimation* FunnyAnimation::instance = NULL;
 
 FunnyAnimation::FunnyAnimation():
 	screen(Screen::getInstance()),
-	pacman(Pacman::getInstance()),
+	pacman_sdl(Pacman::getInstance()),
 	ghosts(Ghost::getGhostArray()),
 	labyrinth(Labyrinth::getInstance()){
 		animScore200  = Screen::getTextSurface(Screen::getSmallFont(), "200",    Constants::WHITE_COLOR);
@@ -93,20 +93,20 @@ void FunnyAnimation::animate() {
 		if (animationTime >= ANIMATION_WAIT) {
 			if (lastAnimTime < ANIMATION_WAIT) {
 				animWaitUntil = 0;
-				pacman->reset();
-				pacman->set_position(640, 200);
+				pacman_sdl->reset();
+				pacman_sdl->set_position(640, 200);
 			}
-			pacman->move_left(MIN_FRAME_DURATION, -23);
-			if (pacman->x <= -23) {
+			pacman_sdl->move_left(MIN_FRAME_DURATION, -23);
+			if (pacman_sdl->x <= -23) {
 				idxAnimation  = (idxAnimation + 1) % NUM_ANIMATIONS;
 				animationTime = 0;
 				animationPart = 0;
 				screen->AddUpdateRects(animRect.x, animRect.y, animRect.w, animRect.h);
 			}
 			screen->fillRect(&animRect, 0, 0, 0);
-			pacman->animate();
-			pacman->draw();
-			pacman->addUpdateRect();
+			pacman_sdl->animate();
+			pacman_sdl->draw();
+			pacman_sdl->addUpdateRect();
 			screen->clearOutsideClipRect();
 			screen->Refresh();
 		}
@@ -119,8 +119,8 @@ void FunnyAnimation::animate() {
 				animationPart = 1;
 				animWaitUntil = 0;
 				// initialize figures
-				pacman->reset();
-				pacman->set_position(-23, 200);
+				pacman_sdl->reset();
+				pacman_sdl->set_position(-23, 200);
 				for(int i = 0; i < 4; ++i) {
 					ghosts[i]->reset();
 					ghosts[i]->set_position(-60 - (i*30), 200);
@@ -128,8 +128,8 @@ void FunnyAnimation::animate() {
 				animation_counter = 0;
 			}
 			if (animationPart == 1) {
-				pacman->move_right(MIN_FRAME_DURATION, 540);
-				if (pacman->x >= 540) {
+				pacman_sdl->move_right(MIN_FRAME_DURATION, 540);
+				if (pacman_sdl->x >= 540) {
 					animationPart = 2;
 					ghosts[0]->set_hunter(Figur::PACMAN);
 					ghosts[1]->set_hunter(Figur::PACMAN);
@@ -143,9 +143,9 @@ void FunnyAnimation::animate() {
 				animation_counter += MIN_FRAME_DURATION;
 			} else if (animationPart == 2) {
 				if (animationTime >= animWaitUntil) {
-					pacman->move_left(MIN_FRAME_DURATION, -23);
-					pacman->setVisibility(true);
-					if (pacman->x <= -23) {
+					pacman_sdl->move_left(MIN_FRAME_DURATION, -23);
+					pacman_sdl->setVisibility(true);
+					if (pacman_sdl->x <= -23) {
 						idxAnimation  = (idxAnimation + 1) % NUM_ANIMATIONS;
 						animationTime = 0;
 						animationPart = 0;
@@ -160,32 +160,32 @@ void FunnyAnimation::animate() {
 					ghosts[2]->move_left(MIN_FRAME_DURATION, -23);
 					ghosts[3]->move_left(MIN_FRAME_DURATION, -23);
 				}
-				if (pacman->x <= ghosts[0]->x + 11 && ghosts[0]->isVisible()) {
+				if (pacman_sdl->x <= ghosts[0]->x + 11 && ghosts[0]->isVisible()) {
 					ghosts[0]->setVisibility(false);
 					xScore200 = ghosts[0]->x;
 					timeScore200 = 400;
-					pacman->setVisibility(false);
+					pacman_sdl->setVisibility(false);
 					animWaitUntil = animationTime + 400;
 				}
-				if (pacman->x <= ghosts[1]->x + 11 && ghosts[1]->isVisible()) {
+				if (pacman_sdl->x <= ghosts[1]->x + 11 && ghosts[1]->isVisible()) {
 					ghosts[1]->setVisibility(false);
 					xScore400 = ghosts[1]->x;
 					timeScore400 = 400;
-					pacman->setVisibility(false);
+					pacman_sdl->setVisibility(false);
 					animWaitUntil = animationTime + 400;
 				}
-				if (pacman->x <= ghosts[2]->x + 11 && ghosts[2]->isVisible()) {
+				if (pacman_sdl->x <= ghosts[2]->x + 11 && ghosts[2]->isVisible()) {
 					ghosts[2]->setVisibility(false);
 					xScore800 = ghosts[2]->x;
 					timeScore800 = 400;
-					pacman->setVisibility(false);
+					pacman_sdl->setVisibility(false);
 					animWaitUntil = animationTime + 400;
 				}
-				if (pacman->x <= ghosts[3]->x + 11 && ghosts[3]->isVisible()) {
+				if (pacman_sdl->x <= ghosts[3]->x + 11 && ghosts[3]->isVisible()) {
 					ghosts[3]->setVisibility(false);
 					xScore1600 = ghosts[3]->x;
 					timeScore1600 = 400;
-					pacman->setVisibility(false);
+					pacman_sdl->setVisibility(false);
 					animWaitUntil = animationTime + 400;
 				}
 				animation_counter += MIN_FRAME_DURATION;
@@ -212,9 +212,9 @@ void FunnyAnimation::animate() {
 			ghosts[2]->addUpdateRect();
 			ghosts[3]->draw();
 			ghosts[3]->addUpdateRect();
-			pacman->animate();
-			pacman->draw();
-			pacman->addUpdateRect();
+			pacman_sdl->animate();
+			pacman_sdl->draw();
+			pacman_sdl->addUpdateRect();
 			if (timeScore200 > 0) {
 				timeScore200 -= MIN_FRAME_DURATION;
 				if (timeScore200 <= 0) {
@@ -262,8 +262,8 @@ void FunnyAnimation::animate() {
 				animationPart = 1;
 				animWaitUntil = 0;
 				// initialize figures
-				pacman->reset();
-				pacman->set_position(-23, 200);
+				pacman_sdl->reset();
+				pacman_sdl->set_position(-23, 200);
 				ghosts[0]->reset();
 				ghosts[0]->set_position(640, 200);
 				ghosts[1]->reset();
@@ -277,9 +277,9 @@ void FunnyAnimation::animate() {
 			screen->fillRect(&animRect, 0, 0, 0);
 			if (animationPart == 1) {
 				xTarget = 320 + (pacmanName->w >> 1) + 50;
-				pacman->move_right(MIN_FRAME_DURATION, xTarget);
-				if (pacman->x >= xTarget) {
-					pacman->right_pic(0);  // mouth open
+				pacman_sdl->move_right(MIN_FRAME_DURATION, xTarget);
+				if (pacman_sdl->x >= xTarget) {
+					pacman_sdl->right_pic(0);  // mouth open
 					animRectTmp.x = (short int) (xTarget - 50 - pacmanName->w);
 					animRectTmp.y = (short int) (223-pacmanName->h);
 					animRectTmp.w = (short int) pacmanName->w;
@@ -299,8 +299,8 @@ void FunnyAnimation::animate() {
 					screen->AddUpdateRects(animRectTmp.x, animRectTmp.y, animRectTmp.w, animRectTmp.h);
 				}
 			} else if (animationPart == 3) {
-				pacman->move_right(MIN_FRAME_DURATION, 690);
-				if (pacman->x >= 690) {
+				pacman_sdl->move_right(MIN_FRAME_DURATION, 690);
+				if (pacman_sdl->x >= 690) {
 					animationPart = 4;
 				}
 			} else if (animationPart == 4) {
@@ -416,9 +416,9 @@ void FunnyAnimation::animate() {
 				}
 			}
 			if (1 <= animationPart && animationPart <= 3) {
-				pacman->animate();
-				pacman->draw();
-				pacman->addUpdateRect();
+				pacman_sdl->animate();
+				pacman_sdl->draw();
+				pacman_sdl->addUpdateRect();
 			}
 			if (4 <= animationPart && animationPart <= 15) {
 				animation_counter += MIN_FRAME_DURATION;
@@ -452,20 +452,20 @@ void FunnyAnimation::animate() {
 			if (lastAnimTime < ANIMATION_WAIT) {
 				animationPart = 0;
 				animWaitUntil = 0;
-				pacman->reset();
-				pacman->set_position(840, 200);
+				pacman_sdl->reset();
+				pacman_sdl->set_position(840, 200);
 			}
 			screen->fillRect(&animRect, 0, 0, 0);
 			if (animationTime >= animWaitUntil) {
-				pacman->move_left(MIN_FRAME_DURATION, -23);
-				pacman->setVisibility(true);
+				pacman_sdl->move_left(MIN_FRAME_DURATION, -23);
+				pacman_sdl->setVisibility(true);
 			}
 			for (int i = animationPart; i < NUM_FRUITS; i++) {
-				if (pacman->x < xFruits[i]+11 && animationPart < i+1) {
+				if (pacman_sdl->x < xFruits[i]+11 && animationPart < i+1) {
 					animationPart = i+1;  // here, means "fruit No. i eaten"
 					screen->AddUpdateRects(xFruits[i], 200, animFruits[i]->w, animFruits[i]->h);
 					timeScore[i] = 400;
-					pacman->setVisibility(false);
+					pacman_sdl->setVisibility(false);
 					animWaitUntil = animationTime + 400;
 					break;
 				}
@@ -474,7 +474,7 @@ void FunnyAnimation::animate() {
 				screen->draw(animFruits[i], xFruits[i], 200);
 				screen->AddUpdateRects(xFruits[i], 200, animFruits[i]->w, animFruits[i]->h);
 			}
-			if (pacman->x <= -23) {
+			if (pacman_sdl->x <= -23) {
 				idxAnimation  = (idxAnimation + 1) % NUM_ANIMATIONS;
 				animationTime = 0;
 				animationPart = 0;
@@ -483,9 +483,9 @@ void FunnyAnimation::animate() {
 				}
 				screen->AddUpdateRects(animRect.x, animRect.y, animRect.w, animRect.h);
 			}
-			pacman->animate();
-			pacman->draw();
-			pacman->addUpdateRect();
+			pacman_sdl->animate();
+			pacman_sdl->draw();
+			pacman_sdl->addUpdateRect();
 			for (int i = 0; i < NUM_FRUITS; i++) {
 				if (timeScore[i] > 0) {
 					timeScore[i] -= MIN_FRAME_DURATION;
@@ -510,8 +510,8 @@ void FunnyAnimation::animate() {
 				animationPart = 1;
 				animWaitUntil = 0;
 				// initialize figures
-				pacman->reset();
-				pacman->set_position(-23, 200);
+				pacman_sdl->reset();
+				pacman_sdl->set_position(-23, 200);
 				ghosts[0]->reset();
 				ghosts[0]->set_position(-120, 200);
 				ghosts[1]->reset();
@@ -523,37 +523,37 @@ void FunnyAnimation::animate() {
 				animation_counter = 0;
 			}
 			if (animationPart == 1) {
-				pacman->move_right(MIN_FRAME_DURATION, 540);
+				pacman_sdl->move_right(MIN_FRAME_DURATION, 540);
 				ghosts[0]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[1]->move_left(MIN_FRAME_DURATION, -23);
 				ghosts[2]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[3]->move_right(MIN_FRAME_DURATION, 640);
-				if (pacman->x >= ghosts[1]->x - 60) {
+				if (pacman_sdl->x >= ghosts[1]->x - 60) {
 					animationPart = 2;
 				}
 			} else if (animationPart == 2) {
-				pacman->move_left(MIN_FRAME_DURATION, -23);
+				pacman_sdl->move_left(MIN_FRAME_DURATION, -23);
 				ghosts[0]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[1]->move_left(MIN_FRAME_DURATION, -23);
 				ghosts[2]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[3]->move_right(MIN_FRAME_DURATION, 640);
-				if (pacman->x <= ghosts[0]->x + 35) {
+				if (pacman_sdl->x <= ghosts[0]->x + 35) {
 					animationPart = 3;
 				}
 			} else if (animationPart == 3) {
-				pacman->move_right(MIN_FRAME_DURATION, 540);
+				pacman_sdl->move_right(MIN_FRAME_DURATION, 540);
 				ghosts[0]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[1]->move_left(MIN_FRAME_DURATION, -23);
 				ghosts[2]->move_right(MIN_FRAME_DURATION, 640);
 				ghosts[3]->move_right(MIN_FRAME_DURATION, 640);
-				if (pacman->x >= ghosts[1]->x - 11) {
-					pacman->right_pic(0);  // mouth open
-					pacman->set_dying(10);
+				if (pacman_sdl->x >= ghosts[1]->x - 11) {
+					pacman_sdl->right_pic(0);  // mouth open
+					pacman_sdl->set_dying(10);
 					animationPart = 4;
 				}
 			} else if (animationPart == 4) {
-				if (animation_counter < MIN_FRAME_DURATION && !pacman->die_animation(/*skipSound=*/true)) {
-					pacman->setVisibility(false);
+				if (animation_counter < MIN_FRAME_DURATION && !pacman_sdl->die_animation(/*skipSound=*/true)) {
+					pacman_sdl->setVisibility(false);
 					animationPart = 5;
 					animWaitUntil = animationTime + 2000;
 				}
@@ -587,10 +587,10 @@ void FunnyAnimation::animate() {
 				ghosts[3]->draw();
 				ghosts[3]->addUpdateRect();
 				if (animationPart < 4) {
-					pacman->animate();
+					pacman_sdl->animate();
 				}
-				pacman->draw();
-				pacman->addUpdateRect();
+				pacman_sdl->draw();
+				pacman_sdl->addUpdateRect();
 			}
 			screen->clearOutsideClipRect();
 			screen->Refresh();

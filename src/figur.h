@@ -72,7 +72,7 @@ class Figur {
 		int least(int a, int b);
 		int greatest(int a, int b);
 
-		// sets the figure's visibility (e.g. for pacman after eating a ghost or a fruit)
+		// sets the figure's visibility (e.g. for pacman_sdl after eating a ghost or a fruit)
 		void setVisibility(bool v);
 
 		// return the visibility

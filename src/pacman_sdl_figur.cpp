@@ -1,4 +1,4 @@
-#include "pacman_figur.h"
+#include "pacman_sdl_figur.h"
 #include "ghost_figur.h"
 #include "math.h"
 #include <iostream>
@@ -32,16 +32,16 @@ Pacman::Pacman():
 	wechsel_y = Constants::PACMAN_INITIAL_Y;
 	direction = LEFT;
 	direction_pre = LEFT;
-	pacman_normal   = Screen::loadImage("gfx/pacman.png", 255);
-	pacman_links_1  = Screen::loadImage("gfx/pacman_links_1.png", 255);
-    pacman_links_2  = Screen::loadImage("gfx/pacman_links_2.png", 255);
-    pacman_oben_1   = Screen::loadImage("gfx/pacman_oben_1.png", 255);
-    pacman_oben_2   = Screen::loadImage("gfx/pacman_oben_2.png", 255);
-    pacman_rechts_1 = Screen::loadImage("gfx/pacman_rechts_1.png", 255);
-    pacman_rechts_2 = Screen::loadImage("gfx/pacman_rechts_2.png", 255);
-    pacman_unten_1  = Screen::loadImage("gfx/pacman_unten_1.png", 255);
-    pacman_unten_2  = Screen::loadImage("gfx/pacman_unten_2.png", 255);
-	// initialize all pacman images
+	pacman_normal   = Screen::loadImage("gfx/pacman_sdl.png", 255);
+	pacman_links_1  = Screen::loadImage("gfx/pacman_sdl_links_1.png", 255);
+    pacman_links_2  = Screen::loadImage("gfx/pacman_sdl_links_2.png", 255);
+    pacman_oben_1   = Screen::loadImage("gfx/pacman_sdl_oben_1.png", 255);
+    pacman_oben_2   = Screen::loadImage("gfx/pacman_sdl_oben_2.png", 255);
+    pacman_rechts_1 = Screen::loadImage("gfx/pacman_sdl_rechts_1.png", 255);
+    pacman_rechts_2 = Screen::loadImage("gfx/pacman_sdl_rechts_2.png", 255);
+    pacman_unten_1  = Screen::loadImage("gfx/pacman_sdl_unten_1.png", 255);
+    pacman_unten_2  = Screen::loadImage("gfx/pacman_sdl_unten_2.png", 255);
+	// initialize all pacman_sdl images
     ar_pacman_links[0] = pacman_links_1;
     ar_pacman_links[1] = pacman_links_2;
     ar_pacman_links[2] = pacman_links_1;
@@ -62,22 +62,22 @@ Pacman::Pacman():
     ar_pacman_unten[2] = pacman_unten_1;
     ar_pacman_unten[3] = pacman_normal;
 
-    ar_pacman_die[0]  = Screen::loadImage("gfx/pacman_die_1.png",  255);
-    ar_pacman_die[1]  = Screen::loadImage("gfx/pacman_die_2.png",  255);
-    ar_pacman_die[2]  = Screen::loadImage("gfx/pacman_die_3.png",  255);
-    ar_pacman_die[3]  = Screen::loadImage("gfx/pacman_die_4.png",  255);
-    ar_pacman_die[4]  = Screen::loadImage("gfx/pacman_die_5.png",  255);
-    ar_pacman_die[5]  = Screen::loadImage("gfx/pacman_die_6.png",  255);
-	ar_pacman_die[6]  = Screen::loadImage("gfx/pacman_die_10.png", 255);
-	ar_pacman_die[7]  = Screen::loadImage("gfx/pacman_die_10.png", 255);
-	ar_pacman_die[8]  = Screen::loadImage("gfx/pacman_die_10.png", 255);
-	ar_pacman_die[9]  = Screen::loadImage("gfx/pacman_die_7.png",  255);
-    ar_pacman_die[10] = Screen::loadImage("gfx/pacman_die_8.png",  255);
-    ar_pacman_die[11] = Screen::loadImage("gfx/pacman_die_9.png",  255);
-    ar_pacman_die[12] = Screen::loadImage("gfx/pacman_die_7.png",  255);
-    ar_pacman_die[13] = Screen::loadImage("gfx/pacman_die_8.png",  255);
-    ar_pacman_die[14] = Screen::loadImage("gfx/pacman_die_9.png",  255);
-    ar_pacman_die[15] = Screen::loadImage("gfx/pacman_die_9.png",  255);
+    ar_pacman_die[0]  = Screen::loadImage("gfx/pacman_sdl_die_1.png",  255);
+    ar_pacman_die[1]  = Screen::loadImage("gfx/pacman_sdl_die_2.png",  255);
+    ar_pacman_die[2]  = Screen::loadImage("gfx/pacman_sdl_die_3.png",  255);
+    ar_pacman_die[3]  = Screen::loadImage("gfx/pacman_sdl_die_4.png",  255);
+    ar_pacman_die[4]  = Screen::loadImage("gfx/pacman_sdl_die_5.png",  255);
+    ar_pacman_die[5]  = Screen::loadImage("gfx/pacman_sdl_die_6.png",  255);
+	ar_pacman_die[6]  = Screen::loadImage("gfx/pacman_sdl_die_10.png", 255);
+	ar_pacman_die[7]  = Screen::loadImage("gfx/pacman_sdl_die_10.png", 255);
+	ar_pacman_die[8]  = Screen::loadImage("gfx/pacman_sdl_die_10.png", 255);
+	ar_pacman_die[9]  = Screen::loadImage("gfx/pacman_sdl_die_7.png",  255);
+    ar_pacman_die[10] = Screen::loadImage("gfx/pacman_sdl_die_8.png",  255);
+    ar_pacman_die[11] = Screen::loadImage("gfx/pacman_sdl_die_9.png",  255);
+    ar_pacman_die[12] = Screen::loadImage("gfx/pacman_sdl_die_7.png",  255);
+    ar_pacman_die[13] = Screen::loadImage("gfx/pacman_sdl_die_8.png",  255);
+    ar_pacman_die[14] = Screen::loadImage("gfx/pacman_sdl_die_9.png",  255);
+    ar_pacman_die[15] = Screen::loadImage("gfx/pacman_sdl_die_9.png",  255);
 
 	pacman_sf = ar_pacman_links[0];
 }
@@ -228,7 +228,7 @@ void Pacman::move_on_rails(int ms, Rail **ar_s) {
 		}
 	}
 	if (!moved) {
-		// Find the rail that pacman is positioned on. Also, consider the direction that the player wants to move.
+		// Find the rail that pacman_sdl is positioned on. Also, consider the direction that the player wants to move.
 		int idxLeft, idxRight, idxUp, idxDown;
 		Labyrinth::getInstance()->getRailsForPoint(this->x, this->y, &idxLeft, &idxRight, &idxUp, &idxDown);
 		if (idxLeft>=0 && this->x <= ar_s[idxLeft]->x1)
@@ -281,7 +281,7 @@ void Pacman::move_on_rails(int ms, Rail **ar_s) {
 }
 
 void Pacman::stopped() {
-	// if pacman stops, please set it to "normal"
+	// if pacman_sdl stops, please set it to "normal"
 	if (!is_dying()) {
 		switch(get_direction()) {
 			case Figur::LEFT:
@@ -374,11 +374,11 @@ void Pacman::check_eat_pills() {
 				break;
 			}
 		}
-		// only if pacman really has moved
+		// only if pacman_sdl really has moved
 		if(cnt_slow > 0)
 			cnt_slow--;
 		if(cnt_slow <= 0)
-			set_speed(Constants::PACMAN_V_FAST); // make pacman fast again
+			set_speed(Constants::PACMAN_V_FAST); // make pacman_sdl fast again
 
 		// fruit eaten?
 		if(Labyrinth::getInstance()->fruitIsDisplayed() && this->y == Constants::FRUIT_Y && ((this->x>=Constants::FRUIT_X && this->last_x<=Constants::FRUIT_X) || (this->x<=Constants::FRUIT_X && this->last_x>=Constants::FRUIT_X))) {

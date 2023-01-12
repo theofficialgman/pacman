@@ -1,9 +1,9 @@
 Pacman
 ------
 
-This is a clone of the original pacman from Namco, as I remember , and I played 
+This is a clone of the original pacman_sdl from Namco, as I remember , and I played 
 for the first time on an Atari 130 XL in the early 90s.
-But Paul Neaves pacman clone has inspired me greatly.
+But Paul Neaves pacman_sdl clone has inspired me greatly.
 One of the main goals of this implementation is a SDL Application with very
 less use of CPU power.
 
@@ -17,5 +17,5 @@ You need libsdl, sdl-image, sdl-ttf and sdl-mixer.
 License
 -------------------
 
-pacman is licensed under the terms of the GNU General Public License 
+pacman_sdl is licensed under the terms of the GNU General Public License 
 version 2 (or any later version).
